@@ -26,6 +26,9 @@ import StoryCategory from './pages/StoryCategory'
 import Games from './pages/Games'
 import ActivityBooks from './pages/ActivityBooks'
 import NotFound from './pages/NotFound'
+import Terms from './pages/Terms'
+import Disclaimer from './pages/Disclaimer'
+import Privacy from './pages/Privacy'
 import { storyCollections } from './data/stories'
 
 export default function App() {
@@ -63,9 +66,9 @@ export default function App() {
           ))}
           <Route path="/games" element={<Games />} />
           <Route path="/activity-books" element={<ActivityBooks />} />
-          <Route path="/disclaimer" element={<NotFound message="The Disclaimer page is coming soon." />} />
-          <Route path="/terms" element={<NotFound message="The Terms and Conditions page is coming soon." />} />
-          <Route path="/privacy" element={<NotFound message="The Privacy Policy page is coming soon." />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
