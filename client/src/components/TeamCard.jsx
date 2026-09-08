@@ -9,13 +9,22 @@ export default function TeamCard({ member }) {
     <div className="card card-hover flex flex-col items-center p-6 text-center">
       
       {/* Profile Image */}
-      <div className="h-28 w-28 overflow-hidden rounded-full">
-        <img
-          src={member.image}
-          alt={`${member.name} profile`}
-          className="h-full w-full object-cover"
-        />
-      </div>
+      {member.image ? (
+        <div className="h-28 w-28 overflow-hidden rounded-full">
+          <img
+            src={member.image}
+            alt={`${member.name} profile`}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      ) : (
+        <div
+          className="flex h-28 w-28 items-center justify-center rounded-full bg-brand-100 text-4xl font-extrabold text-brand-700 dark:bg-brand-500/15 dark:text-brand-500"
+          aria-hidden="true"
+        >
+          {(member.name || '?').trim().charAt(0).toUpperCase()}
+        </div>
+      )}
 
       {/* Name */}
       <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-slate-100">

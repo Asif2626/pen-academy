@@ -1,10 +1,16 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { blogs } from '../data/blogs'
+import LoadingState from '../components/LoadingState'
+import ErrorState from '../components/ErrorState'
+import { getBlogBySlug, getBlogs } from '../services/content'
+import useAsync from '../services/useAsync'
 import NotFound from './NotFound'
 
 function formatDate(value) {
-  return new Date(value).toLocaleDateString('en-GB', {
+  if (!value) return ''
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return value
+  return date.toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -13,13 +19,45 @@ function formatDate(value) {
 
 export default function BlogDetails() {
   const { slug } = useParams()
-  const blog = blogs.find((b) => b.slug === slug)
+  const { loading, error, data, retry } = useAsync(
+    async () => {
+      const blog = await getBlogBySlug(slug)
+      if (!blog) return null
+      const all = await getBlogs()
+      return {
+        blog,
+        related: (all || []).filter((b) => b.slug !== blog.slug).slice(0, 3),
+      }
+    },
+    [slug],
+  )
 
-  if (!blog) {
+  if (loading) {
+    return (
+      <section className="container-px mx-auto max-w-3xl py-14">
+        <LoadingState label="Loading article…" />
+      </section>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="container-px mx-auto max-w-3xl py-14">
+        <ErrorState
+          title="Could not load this article"
+          message="We could not load the blog post from the server. Check your connection and try again."
+          onRetry={retry}
+        />
+      </section>
+    )
+  }
+
+  if (!data) {
     return <NotFound message={`No blog post found for "${slug}".`} />
   }
 
-  const related = blogs.filter((b) => b.slug !== slug).slice(0, 3)
+  const blog = data.blog
+  const related = data.related
 
   return (
     <article className="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">

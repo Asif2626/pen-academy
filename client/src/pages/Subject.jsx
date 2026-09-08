@@ -3,13 +3,38 @@ import { Link, useParams } from 'react-router-dom'
 import SectionTitle from '../components/SectionTitle'
 import ChapterCard from '../components/ChapterCard'
 import BackButton from '../components/BackButton'
-import { courses } from '../data/courses'
-import { books } from '../data/books'
+import EmptyState from '../components/EmptyState'
+import LoadingState from '../components/LoadingState'
+import ErrorState from '../components/ErrorState'
+import { getCurriculum } from '../services/curriculum'
+import useAsync from '../services/useAsync'
 import NotFound from './NotFound'
 
 export default function Subject() {
   const { grade, subject } = useParams()
-  const course = courses[grade]
+  const { loading, error, data, retry } = useAsync(() => getCurriculum(), [grade, subject])
+
+  if (loading) {
+    return (
+      <section className="container-px mx-auto max-w-5xl py-16">
+        <LoadingState label="Loading chapters…" />
+      </section>
+    )
+  }
+
+  if (error || !data) {
+    return (
+      <section className="container-px mx-auto max-w-5xl py-16">
+        <ErrorState
+          title="Could not load this subject"
+          message="We could not load the curriculum from the server. Check your connection and try again."
+          onRetry={retry}
+        />
+      </section>
+    )
+  }
+
+  const course = data.courses[grade]
 
   if (!course) {
     return <NotFound message={`No curriculum found for "${grade}".`} />
@@ -22,7 +47,6 @@ export default function Subject() {
   }
 
   const chapters = subjectData.chapters || []
-  const subjectBooks = books.filter((b) => b.subject.toLowerCase() === subjectData.name.toLowerCase())
 
   return (
     <>
@@ -63,17 +87,28 @@ export default function Subject() {
           title="Chapters"
           description="Select a chapter to access all its video lectures."
         />
-        <div className="mt-8 space-y-5">
-          {chapters.map((chapter, i) => (
-            <ChapterCard
-              key={chapter.slug}
-              gradeSlug={grade}
-              subjectSlug={subject}
-              chapter={chapter}
-              index={i}
+
+        {chapters.length === 0 ? (
+          <div className="mx-auto mt-8 max-w-3xl">
+            <EmptyState
+              emoji="📖"
+              title="No chapters yet"
+              description="Chapters for this subject are being prepared and will be published here soon."
             />
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="mt-8 space-y-5">
+            {chapters.map((chapter, i) => (
+              <ChapterCard
+                key={chapter.slug}
+                gradeSlug={grade}
+                subjectSlug={subject}
+                chapter={chapter}
+                index={i}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="mt-8">
           <BackButton label="Previous Page" />

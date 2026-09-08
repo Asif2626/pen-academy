@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { courses } from '../data/courses'
 import PlaceholderImage from '../components/PlaceholderImage'
 import BackButton from '../components/BackButton'
+import LoadingState from '../components/LoadingState'
+import ErrorState from '../components/ErrorState'
+import EmptyState from '../components/EmptyState'
+import { getCurriculum } from '../services/curriculum'
+import useAsync from '../services/useAsync'
 import NotFound from './NotFound'
 
 // Get YouTube video ID from different YouTube URL formats.
@@ -55,8 +59,32 @@ function getYouTubeThumbnail(url) {
 
 export default function Chapter() {
   const { grade, subject, chapter } = useParams()
+  const { loading, error, data, retry } = useAsync(
+    () => getCurriculum(),
+    [grade, subject, chapter],
+  )
 
-  const course = courses[grade]
+  if (loading) {
+    return (
+      <section className="container-px mx-auto max-w-5xl py-16">
+        <LoadingState label="Loading chapter…" />
+      </section>
+    )
+  }
+
+  if (error || !data) {
+    return (
+      <section className="container-px mx-auto max-w-5xl py-16">
+        <ErrorState
+          title="Could not load this chapter"
+          message="We could not load the curriculum from the server. Check your connection and try again."
+          onRetry={retry}
+        />
+      </section>
+    )
+  }
+
+  const course = data.courses[grade]
 
   if (!course) {
     return <NotFound message={`No curriculum found for "${grade}".`} />
@@ -147,6 +175,15 @@ export default function Chapter() {
           Video Lectures ({lectures.length})
         </h2>
 
+        {lectures.length === 0 ? (
+          <div className="mx-auto mt-8 max-w-3xl">
+            <EmptyState
+              emoji="🎬"
+              title="No lectures yet"
+              description="Video lectures for this chapter are being prepared and will be published here."
+            />
+          </div>
+        ) : (
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {lectures.map((lec, i) => {
             // Extract the YouTube video ID from videoUrl to build the
@@ -238,6 +275,7 @@ export default function Chapter() {
             )
           })}
         </div>
+        )}
 
         <div className="mt-8">
           <BackButton label="Previous Page" />

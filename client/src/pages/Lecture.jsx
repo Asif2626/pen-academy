@@ -1,31 +1,16 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { courses } from '../data/courses'
+import LoadingState from '../components/LoadingState'
+import ErrorState from '../components/ErrorState'
+import { getCurriculum, flattenLectures } from '../services/curriculum'
+import useAsync from '../services/useAsync'
 import NotFound from './NotFound'
 
 // ============================================================
-// Flatten all lectures into one lookup object
+// Note: lectures are loaded from the backend curriculum tree
+// (GET /api/courses/tree) and flattened at request time, so the
+// tree is fetched once and shared across the course pages.
 // ============================================================
-
-const allLectures = Object.values(courses).reduce((acc, course) => {
-  course.subjects.forEach((subject) => {
-    ; (subject.chapters || []).forEach((chapter) => {
-      ; (chapter.lectures || []).forEach((lec) => {
-        acc[lec.id] = {
-          ...lec,
-          courseSlug: course.slug,
-          courseName: course.name,
-          subjectSlug: subject.slug,
-          subjectName: subject.name,
-          chapterSlug: chapter.slug,
-          chapterName: chapter.name,
-        }
-      })
-    })
-  })
-
-  return acc
-}, {})
 
 // ============================================================
 // Convert YouTube URL to embed URL
@@ -81,8 +66,29 @@ function getYouTubeEmbedUrl(url) {
 
 export default function Lecture() {
   const { id } = useParams()
+  const { loading, error, data, retry } = useAsync(() => getCurriculum(), [id])
 
-  const lecture = allLectures[id]
+  if (loading) {
+    return (
+      <section className="container-px mx-auto max-w-5xl py-16">
+        <LoadingState label="Loading lecture…" />
+      </section>
+    )
+  }
+
+  if (error || !data) {
+    return (
+      <section className="container-px mx-auto max-w-5xl py-16">
+        <ErrorState
+          title="Could not load this lecture"
+          message="We could not load the lecture from the server. Check your connection and try again."
+          onRetry={retry}
+        />
+      </section>
+    )
+  }
+
+  const lecture = flattenLectures(data)[id]
 
   // ----------------------------------------------------------
   // Lecture not found

@@ -8,8 +8,10 @@
 //   - Production: set VITE_API_URL to the deployed API origin
 //     (see client/.env.example), e.g. VITE_API_URL=https://api.example.com/api
 //
-// All methods return the full Axios response; the payload is under
-// response.data.data (the { success, data } envelope).
+// This file is the single front-end API layer. Pages never call axios
+// directly — they use the helpers below (optionally via the service modules in
+// src/services/). Every endpoint wraps its payload in a { success, data }
+// envelope; use `getData(...)` to unwrap it (see below).
 
 import axios from 'axios'
 
@@ -22,7 +24,20 @@ export const apiClient = axios.create({
   headers: { 'Content-Type': 'application/json' },
 })
 
-// --- Convenience helpers (used by Phase 3; pages still read src/data today) ---
+// Unwrap the { success, data } envelope used by every endpoint: returns the
+// payload `data` directly and throws a friendly error when the API reports
+// `success: false` (network/HTTP errors still surface from the axios layer).
+// Pass it an axios promise, e.g. `await getData(api.getClasses())`.
+export async function getData(request) {
+  const response = await request
+  const body = response?.data
+  if (body && body.success === false) {
+    throw new Error(body.message || 'The request could not be completed.')
+  }
+  return body ? body.data : undefined
+}
+
+// --- Convenience helpers (single front-end API layer; contracts in README) ---
 export const api = {
   getHealth: () => apiClient.get('/health'),
 
