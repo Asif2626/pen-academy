@@ -15,7 +15,7 @@ export default function SubjectCard({ gradeSlug, subject, index }) {
       aria-label={`${subject.name} — ${chapterCount} chapters`}
     >
       <div className="flex items-center justify-between">
-        <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-100 text-brand-700">
+        <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-100 text-brand-700 dark:bg-brand-500/15 dark:text-brand-500">
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
             <path
               strokeLinecap="round"
@@ -25,13 +25,13 @@ export default function SubjectCard({ gradeSlug, subject, index }) {
             />
           </svg>
         </span>
-        <span className="text-xs font-semibold text-slate-400">0{index + 1}</span>
+        <span className="text-xs font-semibold text-slate-400 dark:text-slate-500">0{index + 1}</span>
       </div>
-      <h3 className="mt-4 text-lg font-bold text-slate-900">{subject.name}</h3>
-      {subject.description && <p className="mt-2 text-sm text-slate-600">{subject.description}</p>}
+      <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-slate-100">{subject.name}</h3>
+      {subject.description && <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{subject.description}</p>}
       <div className="mt-4 flex items-center justify-between text-sm">
-        <span className="font-medium text-slate-500">{chapterCount} chapters</span>
-        <span className="font-semibold text-brand-600">View Subjects</span>
+        <span className="font-medium text-slate-500 dark:text-slate-400">{chapterCount} chapters</span>
+        <span className="font-semibold text-brand-600 dark:text-brand-500">View Subjects</span>
       </div>
     </Link>
   )

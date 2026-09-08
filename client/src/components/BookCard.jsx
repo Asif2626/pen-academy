@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function BookCard({ book }) {
   return (
-    <article className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-xl">
+    <article className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-xl dark:bg-slate-900 dark:ring-slate-800">
 
       {/* Book Image */}
-      <div className="relative h-56 overflow-hidden bg-slate-100">
+      <div className="relative h-56 overflow-hidden bg-slate-100 dark:bg-slate-800">
 
         {book.image ? (
           <img
@@ -43,7 +43,7 @@ export default function BookCard({ book }) {
       <div className="p-5">
 
         {/* Book Title */}
-        <h3 className="text-xl font-bold text-slate-900">
+        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
           {book.title}
         </h3>
 
@@ -64,7 +64,7 @@ export default function BookCard({ book }) {
           <a
             href={book.pdf}
             download
-            className="flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
+            className="flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-600"
           >
             ⬇️ Download
           </a>

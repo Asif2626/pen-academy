@@ -20,14 +20,14 @@ export default function QuizQuestion({ question, currentIndex, total, selectedAn
     selectedAnswer !== null && selectedAnswer === question.answer
   const optionClass = (option) => {
     let base =
-      'mt-2 flex w-full items-center justify-between rounded-lg border-2 bg-white px-4 py-3 text-left text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500'
+      'mt-2 flex w-full items-center justify-between rounded-lg border-2 bg-white px-4 py-3 text-left text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 dark:bg-slate-900'
     if (selectedAnswer === option) {
       // selected
       return isCorrect(option)
-        ? `${base} border-brand-600 bg-brand-50 text-brand-900`
-        : `${base} border-orange-500 bg-orange-50 text-orange-900`
+        ? `${base} border-brand-600 bg-brand-50 text-brand-900 dark:border-brand-500 dark:bg-brand-500/10 dark:text-brand-400`
+        : `${base} border-orange-500 bg-orange-50 text-orange-900 dark:border-orange-500/70 dark:bg-orange-500/10 dark:text-orange-300`
     }
-    return `${base} border-slate-200 text-slate-700 hover:border-brand-600 hover:bg-brand-50`
+    return `${base} border-slate-200 text-slate-700 hover:border-brand-600 hover:bg-brand-50 dark:border-slate-700 dark:text-slate-200 dark:hover:border-brand-500 dark:hover:bg-brand-500/10`
   }
 
   return (
@@ -39,11 +39,11 @@ export default function QuizQuestion({ question, currentIndex, total, selectedAn
       <div className="mb-2 flex items-center justify-between">
         <legend
           id={`question-label-${question.id}`}
-          className="text-lg font-bold text-slate-900 sm:text-xl"
+          className="text-lg font-bold text-slate-900 sm:text-xl dark:text-slate-100"
         >
           {question.question}
         </legend>
-        <span className="text-sm text-slate-600/80" aria-label={`Question ${currentIndex + 1} of ${total}`}>
+        <span className="text-sm text-slate-600/80 dark:text-slate-400" aria-label={`Question ${currentIndex + 1} of ${total}`}>
           {currentIndex + 1}/{total}
         </span>
       </div>

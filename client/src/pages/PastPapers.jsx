@@ -24,7 +24,7 @@ const resourceTypeIcons = {
 function ResourceIcon({ type }) {
   return (
     <span
-      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-100 text-lg"
+      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-100 text-lg dark:bg-brand-500/15"
       aria-hidden="true"
     >
       {resourceTypeIcons[type] || resourceTypeIcons.Other}
@@ -34,7 +34,7 @@ function ResourceIcon({ type }) {
 
 function TypeBadge({ type }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-semibold text-brand-700">
+    <span className="inline-flex items-center rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
       {type}
     </span>
   )
@@ -43,7 +43,7 @@ function TypeBadge({ type }) {
 function YearBadge({ year }) {
   if (!year) return null
   return (
-    <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600">
+    <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
       {year}
     </span>
   )
@@ -51,7 +51,7 @@ function YearBadge({ year }) {
 
 function ComingSoonBadge() {
   return (
-    <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500">
+    <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
       Coming Soon
     </span>
   )
@@ -68,16 +68,16 @@ function GradeCard({ grade, onSelect }) {
     <button
       type="button"
       onClick={() => onSelect(grade)}
-      className="card card-hover group flex w-full flex-col items-start p-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+      className="card card-hover group flex w-full flex-col items-start p-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
       aria-label={`Select ${grade.name} — ${subjectCount} subjects`}
     >
-      <span className="text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-brand-700">
+      <span className="text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-500">
         {grade.name}
       </span>
-      <span className="mt-1 text-sm text-slate-600">
+      <span className="mt-1 text-sm text-slate-600 dark:text-slate-400">
         {subjectCount} {subjectCount === 1 ? 'subject' : 'subjects'}
       </span>
-      <span className="mt-2 text-xs font-semibold text-brand-700">
+      <span className="mt-2 text-xs font-semibold text-brand-700 dark:text-brand-500">
         {resourceCount > 0 ? `${resourceCount} resources listed` : 'Uploads coming soon'}
       </span>
     </button>
@@ -94,21 +94,21 @@ function SubjectCard({ subject, onSelect }) {
     <button
       type="button"
       onClick={() => onSelect(subject)}
-      className="card card-hover group flex w-full items-center justify-between gap-3 p-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+      className="card card-hover group flex w-full items-center justify-between gap-3 p-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
       aria-label={`Select ${subject.name} — ${count} resources`}
     >
       <span className="flex min-w-0 items-center gap-3">
         <span
-          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-100 text-lg"
+          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-100 text-lg dark:bg-brand-500/15"
           aria-hidden="true"
         >
           {subject.icon || '📚'}
         </span>
         <span className="min-w-0">
-          <span className="block truncate font-semibold text-slate-900 transition-colors group-hover:text-brand-700">
+          <span className="block truncate font-semibold text-slate-900 transition-colors group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-500">
             {subject.name}
           </span>
-          <span className="block text-xs text-slate-500">
+          <span className="block text-xs text-slate-500 dark:text-slate-400">
             {count > 0 ? `${count} ${count === 1 ? 'resource' : 'resources'}` : 'Uploads coming soon'}
           </span>
         </span>
@@ -129,12 +129,12 @@ function ResourceCard({ resource }) {
       <ResourceIcon type={resource.type} />
 
       <div className="min-w-0 flex-1">
-        <p className="font-semibold leading-snug text-slate-900">{resource.title}</p>
+        <p className="font-semibold leading-snug text-slate-900 dark:text-slate-100">{resource.title}</p>
         <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
           <TypeBadge type={resource.type} />
           <YearBadge year={resource.year} />
           {hasFile && (
-            <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600">
+            <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
               {isPdf ? 'PDF' : resource.file.split('.').pop().toUpperCase()}
             </span>
           )}
@@ -148,7 +148,7 @@ function ResourceCard({ resource }) {
               href={resource.file}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-md border-2 border-brand-600 px-3 py-1.5 text-xs font-semibold text-brand-700 transition-colors hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-1 rounded-md border-2 border-brand-600 px-3 py-1.5 text-xs font-semibold text-brand-700 transition-colors hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:border-brand-500 dark:text-brand-500 dark:hover:bg-brand-500/10 dark:focus-visible:ring-offset-slate-950"
               aria-label={`View ${resource.title}`}
             >
               {isPdf ? 'View PDF' : 'Open'} ↗
@@ -156,7 +156,7 @@ function ResourceCard({ resource }) {
             <a
               href={resource.file}
               download
-              className="inline-flex items-center gap-1 rounded-md bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-1 rounded-md bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
               aria-label={`Download ${resource.title}`}
             >
               Download
@@ -178,7 +178,7 @@ function BackButton({ label, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex items-center gap-1 rounded text-sm font-semibold text-brand-700 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+      className="inline-flex items-center gap-1 rounded text-sm font-semibold text-brand-700 hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:text-brand-500 dark:focus-visible:ring-offset-slate-950"
     >
       ← {label}
     </button>
@@ -314,7 +314,7 @@ export default function PastPapers() {
                       placeholder="Search resources…"
                       value={search}
                       onChange={(event) => setSearch(event.target.value)}
-                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                      className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:placeholder:text-slate-400 dark:focus:ring-brand-500/20"
                     />
                   </div>
 
@@ -327,7 +327,7 @@ export default function PastPapers() {
                         id="past-paper-type"
                         value={typeFilter}
                         onChange={(event) => setTypeFilter(event.target.value)}
-                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-700 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:focus:ring-brand-500/20"
                       >
                         <option value="All">All types</option>
                         {resourceTypes.map((type) => (
@@ -348,7 +348,7 @@ export default function PastPapers() {
                     ))}
                   </ul>
                 ) : (
-                  <p className="mt-6 rounded-lg bg-slate-50 p-4 text-sm text-slate-600">
+                  <p className="mt-6 rounded-lg bg-slate-50 p-4 text-sm text-slate-600 dark:bg-slate-900 dark:text-slate-400">
                     No resources match your search. Try a different title or type.
                   </p>
                 )}
@@ -366,13 +366,13 @@ export default function PastPapers() {
         )}
 
         {/* Divider above the general note — consistent with sibling pages */}
-        <div className="mt-14 border-t border-slate-200" aria-hidden="true" />
+        <div className="mt-14 border-t border-slate-200 dark:border-slate-800" aria-hidden="true" />
       </section>
 
       {/* ==========================================================
           General exam preparation note (preserved from the original page)
       ========================================================== */}
-      <section className="bg-brand-50 py-14">
+      <section className="bg-brand-50 py-14 dark:bg-brand-500/5">
         <div className="container-px mx-auto max-w-7xl">
           <SectionTitle
             title="Exam Preparation Material"

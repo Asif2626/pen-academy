@@ -35,6 +35,7 @@ function BookRow({ book }) {
         transition-colors
         duration-200
         hover:bg-orange-50
+        dark:hover:bg-orange-500/10
       "
     >
       {/* Orange arrow */}
@@ -44,6 +45,7 @@ function BookRow({ book }) {
           font-bold
           leading-none
           text-orange-600
+          dark:text-orange-400
           transition-transform
           duration-200
           group-hover:translate-x-0.5
@@ -60,9 +62,11 @@ function BookRow({ book }) {
           text-sm
           font-semibold
           text-orange-900
+          dark:text-orange-300
           transition-colors
           duration-200
           group-hover:text-orange-700
+          dark:group-hover:text-orange-200
         "
       >
         {book.name}
@@ -80,6 +84,8 @@ function BookRow({ book }) {
           uppercase
           tracking-wide
           text-yellow-800
+          dark:bg-yellow-500/15
+          dark:text-yellow-300
         "
       >
         PDF
@@ -103,6 +109,8 @@ function SectionPill({ children }) {
         uppercase
         tracking-wide
         text-orange-700
+        dark:bg-orange-500/10
+        dark:text-orange-400
       "
     >
       {children}
@@ -132,6 +140,8 @@ export default function TextbookGradeCard({ gradeKey, sections }) {
         transition-shadow
         duration-300
         hover:shadow-md
+        dark:border-slate-800
+        dark:bg-slate-900
       "
     >
       {/* Card header */}
@@ -163,7 +173,7 @@ export default function TextbookGradeCard({ gradeKey, sections }) {
           <section aria-label={`${displayLabel} compulsory books`}>
             <SectionPill>Compulsory</SectionPill>
 
-            <div className="mt-2 divide-y divide-dashed divide-slate-200">
+            <div className="mt-2 divide-y divide-dashed divide-slate-200 dark:divide-slate-800">
               {compulsory.map((book) => (
                 <BookRow key={book.name} book={book} />
               ))}
@@ -178,7 +188,7 @@ export default function TextbookGradeCard({ gradeKey, sections }) {
           >
             <SectionPill>Optional</SectionPill>
 
-            <div className="mt-2 divide-y divide-dashed divide-slate-200">
+            <div className="mt-2 divide-y divide-dashed divide-slate-200 dark:divide-slate-800">
               {optional.map((book) => (
                 <BookRow key={book.name} book={book} />
               ))}

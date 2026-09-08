@@ -28,11 +28,11 @@ export default function CourseCard({ course, index }) {
       >
         {course.shortName.replace(/\D/g, '') || 'P'}
       </div>
-      <h3 className="mt-4 text-lg font-bold text-slate-900">{course.name}</h3>
-      {course.description && <p className="mt-2 flex-1 text-sm text-slate-600">{course.description}</p>}
+      <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-slate-100">{course.name}</h3>
+      {course.description && <p className="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">{course.description}</p>}
       <div className="mt-4 flex items-center justify-between text-sm">
-        <span className="font-medium text-slate-500">{subjectCount} subjects</span>
-        <span className="font-semibold text-brand-600">View Curriculum</span>
+        <span className="font-medium text-slate-500 dark:text-slate-400">{subjectCount} subjects</span>
+        <span className="font-semibold text-brand-600 dark:text-brand-500">View Curriculum</span>
       </div>
     </Link>
   )

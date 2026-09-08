@@ -22,35 +22,35 @@ export default function BlogDetails() {
   const related = blogs.filter((b) => b.slug !== slug).slice(0, 3)
 
   return (
-    <article className="bg-white text-slate-900">
+    <article className="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
 
       {/* Blog Header */}
-      <section className="bg-white py-14">
+      <section className="bg-white py-14 dark:bg-slate-950">
         <div className="container-px mx-auto max-w-3xl">
 
           <nav
-            className="text-sm text-slate-500"
+            className="text-sm text-slate-500 dark:text-slate-400"
             aria-label="Breadcrumb"
           >
             <Link
               to="/blogs"
-              className="text-brand-700 hover:underline"
+              className="text-brand-700 hover:underline dark:text-brand-500"
             >
               Blogs
             </Link>
 
-            <span className="mx-2 text-slate-400">/</span>
+            <span className="mx-2 text-slate-400 dark:text-slate-500">/</span>
 
-            <span className="text-slate-700">
+            <span className="text-slate-700 dark:text-slate-300">
               {blog.title}
             </span>
           </nav>
 
-          <h1 className="mt-4 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
+          <h1 className="mt-4 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl dark:text-slate-100">
             {blog.title}
           </h1>
 
-          <p className="mt-4 text-slate-500">
+          <p className="mt-4 text-slate-500 dark:text-slate-400">
             {blog.author} ·{' '}
             <time dateTime={blog.date}>
               {formatDate(blog.date)}
@@ -78,7 +78,7 @@ export default function BlogDetails() {
           {blog.content.map((paragraph, i) => (
             <p
               key={i}
-              className="leading-relaxed text-slate-800"
+              className="leading-relaxed text-slate-800 dark:text-slate-300"
             >
               {paragraph}
             </p>
@@ -88,13 +88,13 @@ export default function BlogDetails() {
 
         {/* PDF */}
         {blog.pdf && (
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6">
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900">
 
-            <h2 className="text-xl font-bold text-slate-900">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
               Read the Full Article
             </h2>
 
-            <p className="mt-2 text-slate-600">
+            <p className="mt-2 text-slate-600 dark:text-slate-400">
               View or download the PDF version of this article.
             </p>
 
@@ -109,15 +109,6 @@ export default function BlogDetails() {
               >
                 📄 View PDF
               </a>
-
-              {/* Download PDF */}
-              {/* <a
-                href={blog.pdf}
-                download
-                className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-800 transition hover:bg-slate-50"
-              >
-                ⬇ Download PDF
-              </a> */}
 
             </div>
           </div>
@@ -139,10 +130,10 @@ export default function BlogDetails() {
 
       {/* Related Posts */}
       {related.length > 0 && (
-        <section className="bg-white py-12">
+        <section className="bg-white py-12 dark:bg-slate-950">
           <div className="container-px mx-auto max-w-7xl">
 
-            <h2 className="text-xl font-bold text-slate-900">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
               Related Posts
             </h2>
 
@@ -152,14 +143,14 @@ export default function BlogDetails() {
                 <Link
                   key={b.slug}
                   to={`/blogs/${b.slug}`}
-                  className="card card-hover block border border-slate-200 bg-white p-5"
+                  className="card card-hover block border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900"
                   aria-label={b.title}
                 >
-                  <h3 className="font-bold text-slate-900 hover:text-brand-700">
+                  <h3 className="font-bold text-slate-900 hover:text-brand-700 dark:text-slate-100 dark:hover:text-brand-500">
                     {b.title}
                   </h3>
 
-                  <p className="mt-2 text-sm text-slate-600">
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
                     {b.excerpt}
                   </p>
                 </Link>

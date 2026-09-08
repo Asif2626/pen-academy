@@ -31,7 +31,7 @@ export default function QuizCard({
   onClick,
   disabled,
   badge,
-  badgeClass = 'bg-slate-100 text-slate-600',
+  badgeClass = 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300',
 }) {
   const badgeNode = (
     <span
@@ -51,34 +51,34 @@ export default function QuizCard({
               <SubjectIcon subject={subject} />
             </span>
           )}
-          <span className="inline-flex items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700">
+          <span className="inline-flex items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
             Topic
           </span>
         </div>
         {badge && badgeNode}
       </div>
 
-      <h3 className="mt-1 text-xl font-bold text-slate-900 group-hover:text-brand-700 md:text-2xl">
+      <h3 className="mt-1 text-xl font-bold text-slate-900 group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-500 md:text-2xl">
         {title}
       </h3>
 
-      {grade && <p className="mt-1 text-sm text-slate-600/80">{grade}</p>}
+      {grade && <p className="mt-1 text-sm text-slate-600/80 dark:text-slate-400">{grade}</p>}
       {description && (
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 md:text-base">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
           {description}
         </p>
       )}
       {questionCount && (
-        <p className="mt-3 text-sm font-medium text-slate-700">{questionCount} Questions</p>
+        <p className="mt-3 text-sm font-medium text-slate-700 dark:text-slate-300">{questionCount} Questions</p>
       )}
 
-      <span className="mt-4 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-1">
+      <span className="mt-4 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-1 dark:text-brand-500">
         Start Quiz →
       </span>
     </>
   )
 
-  const sharedClass = 'card card-hover group flex h-full flex-col p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2'
+  const sharedClass = 'card card-hover group flex h-full flex-col p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950'
   const ariaLabel = `${title}${grade ? `, ${grade}` : ''}${questionCount ? `, ${questionCount} questions` : ''}`
 
   // Button variant: used for grade/subject/quiz selection (no router navigation)

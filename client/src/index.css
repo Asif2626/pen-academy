@@ -6,10 +6,15 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-white text-slate-800 antialiased;
+    @apply bg-white text-slate-800 antialiased transition-colors duration-200 dark:bg-slate-950 dark:text-slate-200;
     margin: 0;
   }
 
@@ -19,7 +24,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold text-slate-900;
+    @apply font-bold text-slate-900 dark:text-slate-100;
   }
 }
 
@@ -29,11 +34,11 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-950;
   }
 
   .btn-sm {
-    @apply inline-flex items-center justify-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-3.5 py-2 text-sm font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-slate-950;
   }
 
   .btn-primary {
@@ -41,7 +46,7 @@
   }
 
   .btn-outline {
-    @apply btn border-2 border-brand-600 text-brand-700 hover:bg-brand-50 focus:ring-brand-500;
+    @apply btn border-2 border-brand-600 text-brand-700 hover:bg-brand-50 focus:ring-brand-500 dark:border-brand-500 dark:text-brand-500 dark:hover:bg-brand-500/10;
   }
 
   .btn-white {
@@ -49,11 +54,11 @@
   }
 
   .card {
-    @apply overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200;
+    @apply overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 dark:border-slate-800 dark:bg-slate-900;
   }
 
   .card-hover {
-    @apply hover:-translate-y-1 hover:shadow-lg;
+    @apply hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-black/30;
   }
 }
 

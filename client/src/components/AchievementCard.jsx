@@ -12,7 +12,7 @@ export default function AchievementCard({ value, label, emoji, color = 'from-bra
       <div className={`mt-4 bg-gradient-to-r ${color} bg-clip-text text-4xl font-extrabold text-transparent`}>
         {value}
       </div>
-      <p className="mt-1 text-sm font-medium uppercase tracking-wide text-slate-500">{label}</p>
+      <p className="mt-1 text-sm font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">{label}</p>
     </div>
   )
 }

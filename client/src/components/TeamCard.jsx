@@ -18,12 +18,12 @@ export default function TeamCard({ member }) {
       </div>
 
       {/* Name */}
-      <h3 className="mt-4 text-lg font-bold text-slate-900">
+      <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-slate-100">
         {member.name}
       </h3>
 
       {/* Designation */}
-      <p className="text-sm font-semibold text-brand-600">
+      <p className="text-sm font-semibold text-brand-600 dark:text-brand-500">
         {member.designation}
       </p>
 
@@ -34,7 +34,7 @@ export default function TeamCard({ member }) {
           target="_blank"
           rel="noreferrer noopener"
           aria-label={`${member.name} on LinkedIn`}
-          className="mt-4 flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-brand-600 hover:text-white"
+          className="mt-4 flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition-colors hover:bg-brand-600 hover:text-white dark:bg-slate-800 dark:text-slate-300"
         >
           <svg
             className="h-4 w-4"

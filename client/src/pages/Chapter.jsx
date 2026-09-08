@@ -85,11 +85,11 @@ export default function Chapter() {
       {/* =====================================================
           HEADER
       ===================================================== */}
-      <section className="bg-white py-14 text-gray-900">
+      <section className="bg-white py-14 text-gray-900 dark:bg-slate-950 dark:text-slate-100">
         <div className="container-px mx-auto max-w-5xl">
 
           <nav
-            className="text-sm text-gray-500"
+            className="text-sm text-gray-500 dark:text-slate-400"
             aria-label="Breadcrumb"
           >
             <Link to="/" className="hover:underline">
@@ -122,7 +122,7 @@ export default function Chapter() {
 
             <span className="mx-2">/</span>
 
-            <span className="text-gray-900">
+            <span className="text-gray-900 dark:text-slate-100">
               {chapterData.name}
             </span>
           </nav>
@@ -132,7 +132,7 @@ export default function Chapter() {
           </h1>
 
           {chapterData.description && (
-            <p className="mt-3 max-w-2xl text-gray-600">
+            <p className="mt-3 max-w-2xl text-gray-600 dark:text-slate-400">
               {chapterData.description}
             </p>
           )}
@@ -143,7 +143,7 @@ export default function Chapter() {
           VIDEO LECTURES
       ===================================================== */}
       <section className="container-px mx-auto max-w-5xl py-16">
-        <h2 className="border-l-4 border-brand-600 pl-3 text-xl font-bold text-slate-900">
+        <h2 className="border-l-4 border-brand-600 pl-3 text-xl font-bold text-slate-900 dark:text-slate-100">
           Video Lectures ({lectures.length})
         </h2>
 
@@ -164,7 +164,7 @@ export default function Chapter() {
                 {/* =================================================
                     YOUTUBE THUMBNAIL (real thumbnail from videoUrl)
                 ================================================= */}
-                <div className="relative aspect-video w-full overflow-hidden bg-slate-200">
+                <div className="relative aspect-video w-full overflow-hidden bg-slate-200 dark:bg-slate-800">
                   {thumbnail ? (
                     <img
                       src={thumbnail}
@@ -222,15 +222,15 @@ export default function Chapter() {
                     CARD CONTENT
                 ================================================= */}
                 <div className="flex flex-1 flex-col p-5">
-                  <h3 className="font-bold text-slate-900 transition-colors group-hover:text-brand-600">
+                  <h3 className="font-bold text-slate-900 transition-colors group-hover:text-brand-600 dark:text-slate-100 dark:group-hover:text-brand-500">
                     {lec.title}
                   </h3>
 
-                  <p className="mt-2 flex-1 text-sm text-slate-600">
+                  <p className="mt-2 flex-1 text-sm text-slate-600 dark:text-slate-400">
                     {lec.description}
                   </p>
 
-                  <div className="mt-4 text-sm font-semibold text-brand-600">
+                  <div className="mt-4 text-sm font-semibold text-brand-600 dark:text-brand-500">
                     Watch Lecture →
                   </div>
                 </div>

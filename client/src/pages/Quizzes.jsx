@@ -79,7 +79,7 @@ export default function Quizzes() {
                   title={grade}
                   questionCount={null}
                   badge={hasContent ? undefined : 'Coming Soon'}
-                  badgeClass="bg-slate-100 text-slate-600"
+                  badgeClass="bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300"
                   onClick={() => selectGrade(grade)}
                   disabled={!hasContent}
                   aria-label={hasContent ? `Select ${grade}` : `${grade} — coming soon`}
@@ -121,7 +121,7 @@ export default function Quizzes() {
                   />
                 ))
               ) : (
-                <p className="text-slate-600">No subjects available for this grade yet.</p>
+                <p className="text-slate-600 dark:text-slate-400">No subjects available for this grade yet.</p>
               )}
             </div>
           </>
@@ -163,7 +163,7 @@ export default function Quizzes() {
                   />
                 ))
               ) : (
-                <p className="text-slate-600">No quizzes available for this subject yet. Coming soon!</p>
+                <p className="text-slate-600 dark:text-slate-400">No quizzes available for this subject yet. Coming soon!</p>
               )}
             </div>
           </>

@@ -248,11 +248,14 @@ function ActivityBookCard({ book }) {
         hover:-translate-y-1
         hover:border-brand-300
         hover:shadow-lg
+        dark:border-slate-800
+        dark:bg-slate-900
+        dark:hover:border-brand-500/50
       "
       title={`Open ${book.title} PDF`}
     >
       {/* Book Image */}
-      <div className="flex aspect-[3/4] items-center justify-center bg-slate-50 p-4">
+      <div className="flex aspect-[3/4] items-center justify-center bg-slate-50 p-4 dark:bg-slate-800">
         <img
           src={book.image}
           alt={book.title}
@@ -269,8 +272,8 @@ function ActivityBookCard({ book }) {
       </div>
 
       {/* Book Information */}
-      <div className="flex flex-1 flex-col border-t border-slate-100 p-4">
-        <h3 className="text-sm font-semibold text-slate-900">
+      <div className="flex flex-1 flex-col border-t border-slate-100 p-4 dark:border-slate-800">
+        <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
           {book.title}
         </h3>
 
@@ -344,11 +347,11 @@ export default function ActivityBooks() {
                 <div className="mb-8 flex items-center gap-4">
 
                   <div>
-                    <h2 className="text-3xl font-bold text-slate-900">
+                    <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
                       {displayClass}
                     </h2>
 
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
                       {classBooks.length}{' '}
                       {classBooks.length === 1
                         ? 'book available'
@@ -357,7 +360,7 @@ export default function ActivityBooks() {
                   </div>
 
                   {/* Divider */}
-                  <div className="h-px flex-1 bg-slate-200" />
+                  <div className="h-px flex-1 bg-slate-200 dark:bg-slate-800" />
 
                 </div>
 

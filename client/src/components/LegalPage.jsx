@@ -27,8 +27,8 @@ export default function LegalPage({ eyebrow, title, crumb, intro = [], sections 
                 key={index}
                 className={
                   index === 0
-                    ? 'text-base font-medium leading-relaxed text-slate-700'
-                    : 'leading-relaxed text-slate-600'
+                    ? 'text-base font-medium leading-relaxed text-slate-700 dark:text-slate-300'
+                    : 'leading-relaxed text-slate-600 dark:text-slate-400'
                 }
               >
                 {paragraph}
@@ -40,13 +40,13 @@ export default function LegalPage({ eyebrow, title, crumb, intro = [], sections 
         {/* Named sections */}
         {sections.map((section) => (
           <div key={section.heading} className="mt-10">
-            <h2 className="border-l-4 border-brand-600 pl-3 text-xl font-bold text-slate-900">
+            <h2 className="border-l-4 border-brand-600 pl-3 text-xl font-bold text-slate-900 dark:text-slate-100">
               {section.heading}
             </h2>
 
             <div className="mt-4 space-y-4">
               {(section.paragraphs || []).map((paragraph, index) => (
-                <p key={index} className="leading-relaxed text-slate-600">
+                <p key={index} className="leading-relaxed text-slate-600 dark:text-slate-400">
                   {paragraph}
                 </p>
               ))}
@@ -54,7 +54,7 @@ export default function LegalPage({ eyebrow, title, crumb, intro = [], sections 
               {section.bullets && section.bullets.length > 0 && (
                 <ul className="list-disc space-y-2 pl-6">
                   {section.bullets.map((item, index) => (
-                    <li key={index} className="leading-relaxed text-slate-600">
+                    <li key={index} className="leading-relaxed text-slate-600 dark:text-slate-400">
                       {item}
                     </li>
                   ))}

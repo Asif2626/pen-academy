@@ -118,14 +118,14 @@ export default function ParentPack() {
             <React.Fragment key={item.title}>
               <InfoCard {...item} />
               {index < guides.length - 1 && (
-                <div className="my-10 border-t-2 border-dotted border-slate-300" aria-hidden="true" />
+                <div className="my-10 border-t-2 border-dotted border-slate-300 dark:border-slate-700" aria-hidden="true" />
               )}
             </React.Fragment>
           ))}
         </div>
 
         {/* Thin horizontal divider below the section */}
-        <div className="mt-10 border-t border-slate-200" aria-hidden="true" />
+        <div className="mt-10 border-t border-slate-200 dark:border-slate-800" aria-hidden="true" />
       </section>
 
     </>

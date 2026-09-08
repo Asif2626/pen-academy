@@ -15,16 +15,16 @@ export default function EmptyState({
   return (
     <div className="card flex flex-col items-center p-10 text-center sm:p-12">
       <span
-        className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-50 text-3xl"
+        className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-50 text-3xl dark:bg-brand-500/10"
         aria-hidden="true"
       >
         {emoji}
       </span>
 
-      <h3 className="mt-5 text-xl font-bold text-slate-900">{title}</h3>
+      <h3 className="mt-5 text-xl font-bold text-slate-900 dark:text-slate-100">{title}</h3>
 
       {description && (
-        <p className="mt-2 max-w-md text-sm leading-relaxed text-slate-600">{description}</p>
+        <p className="mt-2 max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-400">{description}</p>
       )}
 
       {action && (

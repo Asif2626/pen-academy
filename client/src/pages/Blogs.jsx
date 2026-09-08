@@ -5,7 +5,7 @@ import { blogs } from '../data/blogs'
 
 export default function Blogs() {
   return (
-    <section className="bg-white">
+    <section className="bg-white dark:bg-slate-950">
       <div className="container-px mx-auto max-w-7xl py-16">
         <SectionTitle title="Blogs" />
 

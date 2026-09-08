@@ -111,7 +111,7 @@ export default function QuizRunner({ quiz, onBackToQuizzes }) {
             <SubjectIcon subject={quiz.subject} />
           </span>
         )}
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl dark:text-slate-100">
           {quiz.title}
         </h2>
       </header>

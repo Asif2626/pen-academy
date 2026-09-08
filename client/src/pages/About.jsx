@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function About() {
   return (
-    <div className="w-full bg-white px-6 py-0 text-black">
+    <div className="w-full bg-white px-6 py-0 text-slate-700 dark:bg-slate-950 dark:text-slate-300">
 
       {/* PEN Academy */}
       <section className="mx-auto max-w-6xl">

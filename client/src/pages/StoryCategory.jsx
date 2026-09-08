@@ -23,7 +23,7 @@ export default function StoryCategory({ category }) {
             <img
               src={image}
               alt={title}
-              className="mb-10 aspect-video w-full rounded-xl border border-slate-200 object-cover shadow-sm"
+              className="mb-10 aspect-video w-full rounded-xl border border-slate-200 object-cover shadow-sm dark:border-slate-800"
             />
           )}
 

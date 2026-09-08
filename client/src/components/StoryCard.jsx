@@ -45,11 +45,11 @@ export default function StoryCard({ story }) {
 
       {/* Story title + language */}
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-700">
+        <h3 className="text-lg font-bold text-slate-900 group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-500">
           {title}
         </h3>
 
-        <span className="mt-3 inline-flex w-fit items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
+        <span className="mt-3 inline-flex w-fit items-center rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
           {language}
         </span>
       </div>

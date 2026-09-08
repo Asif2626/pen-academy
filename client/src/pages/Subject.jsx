@@ -26,10 +26,10 @@ export default function Subject() {
 
   return (
     <>
-      <section className="bg-white py-14 text-gray-900">
+      <section className="bg-white py-14 text-gray-900 dark:bg-slate-950 dark:text-slate-100">
         <div className="container-px mx-auto max-w-5xl">
 
-          <nav className="text-sm text-gray-500" aria-label="Breadcrumb">
+          <nav className="text-sm text-gray-500 dark:text-slate-400" aria-label="Breadcrumb">
             <Link to="/" className="hover:underline">
               Home
             </Link>
@@ -42,7 +42,7 @@ export default function Subject() {
               {course.name}
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-900">{subjectData.name}</span>
+            <span className="text-gray-900 dark:text-slate-100">{subjectData.name}</span>
           </nav>
 
           <h1 className="mt-4 text-3xl font-extrabold sm:text-4xl">
@@ -50,7 +50,7 @@ export default function Subject() {
           </h1>
 
           {subjectData.description && (
-            <p className="mt-3 max-w-2xl text-gray-600">
+            <p className="mt-3 max-w-2xl text-gray-600 dark:text-slate-400">
               {subjectData.description}
             </p>
           )}

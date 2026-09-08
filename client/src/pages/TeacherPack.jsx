@@ -137,17 +137,17 @@ export default function TeacherPack() {
             <React.Fragment key={item.id}>
               <InfoCard {...item} />
               {index < teacherTopics.length - 1 && (
-                <div className="my-10 border-t-2 border-dotted border-slate-300" aria-hidden="true" />
+                <div className="my-10 border-t-2 border-dotted border-slate-300 dark:border-slate-700" aria-hidden="true" />
               )}
             </React.Fragment>
           ))}
         </div>
 
         {/* Thin horizontal divider below the section */}
-        <div className="mt-10 border-t border-slate-200" aria-hidden="true" />
+        <div className="mt-10 border-t border-slate-200 dark:border-slate-800" aria-hidden="true" />
       </section>
 
-      <section className="bg-brand-50 py-14">
+      <section className="bg-brand-50 py-14 dark:bg-brand-500/5">
         <div className="container-px mx-auto max-w-7xl">
           <SectionTitle
             title="Lesson Material"

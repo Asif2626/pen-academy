@@ -136,7 +136,7 @@ export default function Home() {
           Achievements
       ================================================== */}
 
-      <section className="bg-brand-50 py-16">
+      <section className="bg-brand-50 py-16 dark:bg-brand-500/5">
         <div className="container-px mx-auto max-w-7xl">
 
           <SectionTitle
@@ -190,7 +190,7 @@ export default function Home() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2 text-slate-700"
+                  className="flex items-start gap-2 text-slate-700 dark:text-slate-300"
                 >
                   <span
                     className="mt-0.5 text-brand-600"
@@ -225,7 +225,7 @@ export default function Home() {
           PEN DOCUMENTARY
       ================================================== */}
 
-      <section className="bg-white py-16 text-slate-900">
+      <section className="bg-white py-16 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
 
         <div className="container-px mx-auto max-w-4xl text-center">
 
@@ -288,7 +288,7 @@ export default function Home() {
           {sponsors.map((sponsor) => (
             <div
               key={sponsor.name}
-              className="flex h-28 w-44 items-center justify-center rounded-xl bg-white p-5 shadow-sm"
+              className="flex h-28 w-44 items-center justify-center rounded-xl bg-white p-5 shadow-sm dark:ring-1 dark:ring-slate-800"
             >
               <img
                 src={sponsor.logo}
@@ -308,7 +308,7 @@ export default function Home() {
           YouTube Channel
       ================================================== */}
 
-      <section className="bg-brand-50 py-16">
+      <section className="bg-brand-50 py-16 dark:bg-brand-500/5">
 
         <div className="container-px mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2">
           <img

@@ -214,20 +214,20 @@ export default function Lecture() {
         {/* Tags */}
         <div className="flex flex-wrap gap-3 text-xs">
 
-          <span className="rounded-full bg-brand-50 px-3 py-1 font-semibold text-brand-700">
+          <span className="rounded-full bg-brand-50 px-3 py-1 font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
             Class: {lecture.courseName}
           </span>
 
-          <span className="rounded-full bg-brand-50 px-3 py-1 font-semibold text-brand-700">
+          <span className="rounded-full bg-brand-50 px-3 py-1 font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
             Subject: {lecture.subjectName}
           </span>
 
-          <span className="rounded-full bg-brand-50 px-3 py-1 font-semibold text-brand-700">
+          <span className="rounded-full bg-brand-50 px-3 py-1 font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
             Chapter: {lecture.chapterName}
           </span>
 
           {lecture.duration && (
-            <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-600">
+            <span className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">
               Duration: {lecture.duration}
             </span>
           )}
@@ -235,18 +235,18 @@ export default function Lecture() {
         </div>
 
         {/* About */}
-        <h2 className="mt-8 text-xl font-bold text-slate-900">
+        <h2 className="mt-8 text-xl font-bold text-slate-900 dark:text-slate-100">
           About this Lecture
         </h2>
 
-        <p className="mt-3 leading-relaxed text-slate-700">
+        <p className="mt-3 leading-relaxed text-slate-700 dark:text-slate-300">
           {lecture.description}
         </p>
 
         {/* Video URL - optional */}
         {lecture.videoUrl && (
           <div className="mt-6">
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-500 dark:text-slate-400">
               Video source:
             </p>
 
@@ -254,7 +254,7 @@ export default function Lecture() {
               href={lecture.videoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-block break-all text-sm font-medium text-brand-600 hover:underline"
+              className="mt-1 inline-block break-all text-sm font-medium text-brand-600 hover:underline dark:text-brand-500"
             >
               Open video on YouTube
             </a>

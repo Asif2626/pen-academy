@@ -16,11 +16,11 @@ export default function ChapterCard({ gradeSlug, subjectSlug, chapter, index }) 
             {index + 1}
           </span>
           <div>
-            <h3 className="text-lg font-bold text-slate-900">{chapter.name}</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{chapter.name}</h3>
             {chapter.description && (
-              <p className="mt-1 text-sm text-slate-600">{chapter.description}</p>
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{chapter.description}</p>
             )}
-            <p className="mt-1 text-xs font-medium text-slate-400">{lectureCount} video lectures</p>
+            <p className="mt-1 text-xs font-medium text-slate-400 dark:text-slate-500">{lectureCount} video lectures</p>
           </div>
         </div>
         <Link

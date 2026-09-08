@@ -83,30 +83,30 @@ export default function Games() {
               href={game.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="card card-hover group block border border-slate-200 bg-white p-6"
+              className="card card-hover group block border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900"
             >
               <div className="flex items-start justify-between">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-sm font-bold text-brand-700">
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-50 text-sm font-bold text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
                   {String(index + 1).padStart(2, '0')}
                 </span>
 
                 <span
-                  className="text-lg text-slate-400 transition group-hover:translate-x-1 group-hover:text-brand-700"
+                  className="text-lg text-slate-400 transition group-hover:translate-x-1 group-hover:text-brand-700 dark:text-slate-500 dark:group-hover:text-brand-500"
                   aria-hidden="true"
                 >
                   ↗
                 </span>
               </div>
 
-              <h2 className="mt-5 text-lg font-bold text-slate-900 transition group-hover:text-brand-700">
+              <h2 className="mt-5 text-lg font-bold text-slate-900 transition group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-500">
                 {game.title}
               </h2>
 
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                 {game.description}
               </p>
 
-              <div className="mt-5 text-sm font-semibold text-brand-700">
+              <div className="mt-5 text-sm font-semibold text-brand-700 dark:text-brand-500">
                 Visit website →
               </div>
             </a>

@@ -30,9 +30,9 @@ export default function Courses() {
           ))}
         </div>
 
-        <p className="mt-8 text-center text-sm text-slate-500">
+        <p className="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
           Looking for textbooks?{' '}
-          <Link to="/books" className="font-semibold text-brand-600 hover:text-brand-700">
+          <Link to="/books" className="font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-500 dark:hover:text-brand-400">
             Browse our Text Books
           </Link>
           .

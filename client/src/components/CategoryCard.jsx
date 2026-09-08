@@ -29,18 +29,18 @@ export default function CategoryCard({ category }) {
       </div>
 
       {/* Title */}
-      <h3 className="mt-4 text-center text-lg font-bold text-slate-900 group-hover:text-brand-700">
+      <h3 className="mt-4 text-center text-lg font-bold text-slate-900 group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-500">
         {category.title}
       </h3>
 
       {/* Description */}
-      <p className="mt-2 text-center text-sm leading-6 text-slate-600">
+      <p className="mt-2 text-center text-sm leading-6 text-slate-600 dark:text-slate-400">
         {category.description}
       </p>
 
       {/* Explore */}
       <div className="mt-4 flex justify-center">
-        <span className="inline-flex items-center text-sm font-semibold text-brand-600">
+        <span className="inline-flex items-center text-sm font-semibold text-brand-600 dark:text-brand-500">
           Explore
 
           <svg

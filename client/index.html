@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="PEN Academy - Progressive Education Network. Digital classroom, video lectures, textbooks, quizzes and educational resources for students, teachers and parents."
-    />
+    <meta name="description" content="PEN Academy - Progressive Education Network. Digital classroom, video lectures, textbooks, quizzes and educational resources for students, teachers and parents." />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <title>PEN Academy | Progressive Education Network</title>
+    <script>
+      // Apply the persisted theme before first paint to avoid a flash of the
+      // wrong theme. No saved preference = Light mode (the site default).
+      (function () {
+        try {
+          if (localStorage.getItem('pen-theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+          }
+        } catch (e) {
+          /* localStorage unavailable — stay in the default Light theme. */
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

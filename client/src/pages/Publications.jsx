@@ -15,27 +15,27 @@ export default function Publications() {
             const items = publications[cat.id] || []
             return (
               <div key={cat.id}>
-                <h2 className="border-l-4 border-brand-600 pl-3 text-xl font-bold text-slate-900">
+                <h2 className="border-l-4 border-brand-600 pl-3 text-xl font-bold text-slate-900 dark:text-slate-100">
                   {cat.label}
                 </h2>
                 {items.length === 0 ? (
-                  <p className="mt-4 text-sm text-slate-500">No publications in this category yet.</p>
+                  <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">No publications in this category yet.</p>
                 ) : (
                   <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
                     {items.map((item) => (
                       <article key={item.id} className="card card-hover p-6">
-                        <h3 className="text-lg font-bold text-slate-900">{item.title}</h3>
-                        <p className="mt-2 text-sm text-slate-600">{item.authors}</p>
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{item.title}</h3>
+                        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{item.authors}</p>
                         <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-                          <span className="rounded-full bg-brand-50 px-2 py-0.5 font-semibold text-brand-700">
+                          <span className="rounded-full bg-brand-50 px-2 py-0.5 font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
                             {item.journal}
                           </span>
-                          <span className="text-slate-500">{item.year}</span>
+                          <span className="text-slate-500 dark:text-slate-400">{item.year}</span>
                         </div>
                         <a
                           href={item.url}
                           target="_blank"
-                          className="mt-4 inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-700"
+                          className="mt-4 inline-flex items-center text-sm font-semibold text-brand-600 hover:text-brand-700 dark:text-brand-500 dark:hover:text-brand-400"
                           aria-label={`Read ${item.title}`}
                         >
                           Read Publication

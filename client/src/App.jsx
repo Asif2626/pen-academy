@@ -30,10 +30,11 @@ import Terms from './pages/Terms'
 import Disclaimer from './pages/Disclaimer'
 import Privacy from './pages/Privacy'
 import { storyCollections } from './data/stories'
+import { ThemeProvider } from './context/ThemeContext'
 
 export default function App() {
   return (
-    <>
+    <ThemeProvider>
       <ScrollToTop />
       <Routes>
         <Route element={<PublicLayout />}>
@@ -72,6 +73,6 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </>
+    </ThemeProvider>
   )
 }

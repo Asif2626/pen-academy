@@ -86,7 +86,7 @@ export default function ResultChecker() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 py-14">
+    <main className="min-h-screen bg-slate-50 py-14 dark:bg-slate-950">
       <div className="container-px mx-auto max-w-7xl">
 
         <SectionTitle
@@ -104,7 +104,7 @@ export default function ResultChecker() {
               <div className="mb-5">
                 <label
                   htmlFor="board"
-                  className="mb-2 block text-sm font-semibold text-slate-700"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
                 >
                   Select Board
                 </label>
@@ -113,7 +113,7 @@ export default function ResultChecker() {
                   id="board"
                   value={board}
                   onChange={(e) => setBoard(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:focus:ring-brand-500/20"
                 >
                   <option value="">
                     Select your board
@@ -134,7 +134,7 @@ export default function ResultChecker() {
               <div className="mb-5">
                 <label
                   htmlFor="className"
-                  className="mb-2 block text-sm font-semibold text-slate-700"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
                 >
                   Select Class
                 </label>
@@ -143,7 +143,7 @@ export default function ResultChecker() {
                   id="className"
                   value={className}
                   onChange={(e) => setClassName(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-700 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:focus:ring-brand-500/20"
                 >
                   <option value="">
                     Select your class
@@ -164,7 +164,7 @@ export default function ResultChecker() {
               <div className="mb-6">
                 <label
                   htmlFor="rollNumber"
-                  className="mb-2 block text-sm font-semibold text-slate-700"
+                  className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
                 >
                   Roll Number
                 </label>
@@ -176,21 +176,21 @@ export default function ResultChecker() {
                   placeholder="Enter your roll number"
                   value={rollNumber}
                   onChange={(e) => setRollNumber(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100"
+                  className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:placeholder:text-slate-400 dark:focus:ring-brand-500/20"
                 />
               </div>
 
               {/* Button */}
               <button
                 type="submit"
-                className="w-full rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
+                className="w-full rounded-lg bg-brand-600 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:focus:ring-offset-slate-950"
               >
                 Check Result →
               </button>
 
             </form>
 
-            <div className="mt-6 rounded-lg bg-blue-50 p-4 text-sm text-blue-800">
+            <div className="mt-6 rounded-lg bg-blue-50 p-4 text-sm text-blue-800 dark:bg-blue-500/10 dark:text-blue-300">
               <strong>Important:</strong> You will be redirected
               to the selected board's official result website.
             </div>
@@ -201,7 +201,7 @@ export default function ResultChecker() {
         {/* All Punjab Boards */}
         <div className="mx-auto mt-12 max-w-5xl">
 
-          <h2 className="mb-5 text-center text-2xl font-bold text-slate-900">
+          <h2 className="mb-5 text-center text-2xl font-bold text-slate-900 dark:text-slate-100">
             Punjab Boards
           </h2>
 
@@ -214,11 +214,11 @@ export default function ResultChecker() {
                 rel="noopener noreferrer"
                 className="card card-hover flex items-center justify-between p-5"
               >
-                <span className="font-semibold text-slate-800">
+                <span className="font-semibold text-slate-800 dark:text-slate-200">
                   {item.name}
                 </span>
 
-                <span className="font-bold text-brand-700">
+                <span className="font-bold text-brand-700 dark:text-brand-500">
                   →
                 </span>
               </a>

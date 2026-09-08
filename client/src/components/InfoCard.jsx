@@ -84,12 +84,12 @@ export default function InfoCard({
       {/* TEXT COLUMN — left on desktop, first (top) on mobile */}
       <div className="min-w-0">
         {label && (
-          <span className="inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700">
+          <span className="inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
             {label}
           </span>
         )}
 
-        <h3 className={`${label ? 'mt-3' : ''} text-xl font-bold text-slate-900 group-hover:text-brand-700 md:text-2xl`}>
+        <h3 className={`${label ? 'mt-3' : ''} text-xl font-bold text-slate-900 group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-500 md:text-2xl`}>
           {emoji && (
             <span className="mr-2" aria-hidden="true">
               {emoji}
@@ -99,13 +99,13 @@ export default function InfoCard({
         </h3>
 
         {description && (
-          <p className="mt-3 text-sm leading-relaxed text-slate-600 md:text-base">
+          <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
             {description}
           </p>
         )}
 
         {(to || link) && (
-          <span className="mt-4 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-1">
+          <span className="mt-4 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-1 dark:text-brand-500">
             {badge || (videoUrl ? 'Watch on YouTube' : 'Read More')} →
           </span>
         )}
@@ -127,7 +127,7 @@ export default function InfoCard({
 
   if (showImage) {
     const rowClass =
-      'group grid grid-cols-1 items-center gap-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 md:grid-cols-2 md:gap-10'
+      'group grid grid-cols-1 items-center gap-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950 md:grid-cols-2 md:gap-10'
 
     const ariaLabel = videoUrl
       ? `Watch ${title} on YouTube — ${description || 'Open video'}`
@@ -158,30 +158,30 @@ export default function InfoCard({
   const cardBody = (
     <>
       <span
-        className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-100 text-2xl"
+        className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-100 text-2xl dark:bg-brand-500/15"
         aria-hidden="true"
       >
         {emoji}
       </span>
 
       {label && (
-        <span className="mt-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700">
+        <span className="mt-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 dark:bg-brand-500/10 dark:text-brand-500">
           {label}
         </span>
       )}
 
-      <h3 className={`${label ? 'mt-3' : 'mt-4'} text-lg font-bold text-slate-900 group-hover:text-brand-700`}>
+      <h3 className={`${label ? 'mt-3' : 'mt-4'} text-lg font-bold text-slate-900 group-hover:text-brand-700 dark:text-slate-100 dark:group-hover:text-brand-500`}>
         {title}
       </h3>
 
       {description && (
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
           {description}
         </p>
       )}
 
       {(to || link) && (
-        <span className="mt-4 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-1">
+        <span className="mt-4 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-1 dark:text-brand-500">
           {badge || (videoUrl ? 'Watch on YouTube' : 'Read More')} →
         </span>
       )}
@@ -189,7 +189,7 @@ export default function InfoCard({
   )
 
   const cardClass =
-    'card card-hover group flex h-full flex-col p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2'
+    'card card-hover group flex h-full flex-col p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950'
 
   if (to) {
     return (
